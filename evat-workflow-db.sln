@@ -5,6 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HotelDatabase", "HotelDatabase\HotelDatabase.sqlproj", "{006942B9-5D4F-40F0-B3B5-84E9A6E4BF48}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C5FEF0D7-66B7-4D54-8861-DB04CE2B969D}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\db-auto-deploy.yml.yml = .github\workflows\db-auto-deploy.yml.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
