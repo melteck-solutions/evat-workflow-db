@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[HotelBooking] (
+    [Id]                   UNIQUEIDENTIFIER NOT NULL,
+    [HotelRoomId]          NVARCHAR (MAX)   NOT NULL,
+    [CustomerName]         NVARCHAR (MAX)   NOT NULL,
+    [CustomerMobile]       NVARCHAR (MAX)   NOT NULL,
+    [CustomerEmailAddress] NVARCHAR (MAX)   NOT NULL,
+    [CustomerAddress]      NVARCHAR (MAX)   NULL,
+    [CustomerLocation]     NVARCHAR (MAX)   NULL,
+    [AmountPaid]           DECIMAL (18, 2)  NOT NULL,
+    [Balance]              DECIMAL (18, 2)  NOT NULL,
+    [DaysBooked]           INT              NOT NULL,
+    [CreatedAt]            DATETIME2 (7)    CONSTRAINT [DF_HotelBooking_CreatedAt] DEFAULT (getdate()) NOT NULL,
+    [UpdatedAt]            DATETIME2 (7)    CONSTRAINT [DF_HotelBooking_UpdatedAt] DEFAULT (getdate()) NOT NULL,
+    [IsCancelled]          BIT              NOT NULL,
+    [CancellationNotes]    NVARCHAR (MAX)   NULL,
+    [CancelledAt]          DATETIME2 (7)    NOT NULL,
+    [IsCheckedIn]          BIT              NOT NULL,
+    [CheckedInAt]          DATETIME2 (7)    NOT NULL,
+    [CheckedInNotes]       NVARCHAR (MAX)   NULL,
+    [IsCheckedOut]         BIT              NOT NULL,
+    [CheckedOutAt]         DATETIME2 (7)    CONSTRAINT [DF_HotelBooking_CheckedOutAt] DEFAULT (getdate()) NOT NULL,
+    [CheckedOutNotes]      NVARCHAR (MAX)   NULL,
+    [IsPaid]               BIT              NOT NULL,
+    CONSTRAINT [PK_HotelBooking] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
