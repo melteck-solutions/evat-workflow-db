@@ -6,6 +6,11 @@ on:
     branches: 
       - master
 
+
+env:
+    GITHUB_WORKING_DIRECTORY: './'
+    DOTNET_VERSION: '6.0.x'
+
 jobs:
 
   # Job to build and publish the dacpac
@@ -17,10 +22,23 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3.3.0
 
-      # Build dacpac using dotnet build
-      - name: Build Database project
-        run: |
-          dotnet build
+      - name: Setup .NET Core ⚙️⚙️
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install dependencies ⛑️⛑️
+        working-directory: ${{ env.GITHUB_WORKING_DIRECTORY }}
+        run: dotnet restore
+      
+      - name: Build with dotnet ⚒️⚒️
+        working-directory: ${{ env.GITHUB_WORKING_DIRECTORY }}
+        run: dotnet build
+
+      ## Build dacpac using dotnet build
+      #- name: Build Database project
+      #  run: |
+      #    dotnet build
 
 
       # Publish artifact
