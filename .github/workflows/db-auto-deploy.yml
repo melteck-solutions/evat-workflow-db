@@ -32,7 +32,7 @@ jobs:
         run: dotnet restore
       
       - name: Build with dotnet ⚒️⚒️
-        working-directory: ${{ env.GITHUB_WORKING_DIRECTORY }}
+        working-directory: ${{ env.GITHUB_WORKING_DIRECTORY }}/HotelDatabase
         run: dotnet build
 
       ## Build dacpac using dotnet build
