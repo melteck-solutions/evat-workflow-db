@@ -16,10 +16,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3.3.0
+
       # Build dacpac using dotnet build
       - name: Build Database project
         run: |
           dotnet build
+
+
       # Publish artifact
       - uses: actions/upload-artifact@v3.1.2
         with:
